@@ -2,6 +2,6 @@
 
 # Classification of Parallel Computers
 - [Flynn's Classification](./01-classification/flynn.md)
-- [Schartz's Classification](./01-classification/schartz.md)
+- [Schwartz's Classification](./01-classification/schwartz.md)
 
 # Performance of Parallel Algorithms
