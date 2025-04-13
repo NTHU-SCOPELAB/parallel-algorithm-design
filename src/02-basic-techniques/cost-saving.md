@@ -2,7 +2,9 @@
 
 - 平行計算當中，可能會因為平行的特質導致浪費計算資源:
     - 重複計算
-    - 閒置的處理器(最主要的原因)
+    - 閒置的處理器(最主要的原因)  
+      <img width="667" alt="image" src="https://github.com/user-attachments/assets/85c441f5-f8b0-438f-827f-e7529c1b7d1f" />
+
 
 - e.g. 在balanced binary tree 的例子中，每算完一層，就會多出一半的處理器閒置。
 
