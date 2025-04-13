@@ -296,6 +296,68 @@
 <ul>
 <li>事先定好優先級，等級高的說了算。</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parallel-strategies"><a class="header" href="#parallel-strategies">Parallel Strategies</a></h1>
+<p>本章將會整理一些常見的平行策略，並且舉例說明這些策略的運作方式。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="divide-and-conquer"><a class="header" href="#divide-and-conquer">Divide and Conquer</a></h1>
+<ul>
+<li>精神: 把工作分成小塊來遞迴解決。</li>
+</ul>
+<h2 id="example-1-balanced-binary-tree-method"><a class="header" href="#example-1-balanced-binary-tree-method">Example 1. Balanced Binary Tree Method</a></h2>
+<h2 id="example-2-parallel-m-way-search"><a class="header" href="#example-2-parallel-m-way-search">Example 2. Parallel M-way Search</a></h2>
+<h2 id="example-3-double-logarithmic-tree-method"><a class="header" href="#example-3-double-logarithmic-tree-method">Example 3. Double Logarithmic Tree Method</a></h2>
+<h2 id="example-4-finding-the-convex-hull"><a class="header" href="#example-4-finding-the-convex-hull">Example 4. Finding the Convex Hull</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="doubling-pointer-jumping"><a class="header" href="#doubling-pointer-jumping">Doubling (pointer-jumping)</a></h1>
+<ul>
+<li>精神: 在一系列有dependency的資料中，將每個下一個iteration的目標指向parent的目標，以此達成快速cover大量資料的目的。</li>
+</ul>
+<h2 id="example-1-parallel-prefix-on-rooted-directed-tree"><a class="header" href="#example-1-parallel-prefix-on-rooted-directed-tree">Example 1. Parallel prefix on rooted directed tree</a></h2>
+<ul>
+<li>input: linked list</li>
+</ul>
+<h2 id="example-2-prefix-sums-prefix-computation"><a class="header" href="#example-2-prefix-sums-prefix-computation">Example 2. Prefix sums (prefix computation)</a></h2>
+<ul>
+<li>input: array</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="partitioning"><a class="header" href="#partitioning">Partitioning</a></h1>
+<ul>
+<li>精神: 先把問題分小塊計算，合併時需要處理的再另外擦屁股。</li>
+</ul>
+<h2 id="example-1-parallel-merge"><a class="header" href="#example-1-parallel-merge">Example 1. Parallel Merge</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pipelining"><a class="header" href="#pipelining">Pipelining</a></h1>
+<ul>
+<li>精神: 把工作分成多個階段(前面不能影響後面)，每個階段可以同時進行而不會互相影響。</li>
+</ul>
+<h2 id="example-1-insert-a-sorted-sequence-into-a-2-3-tree"><a class="header" href="#example-1-insert-a-sorted-sequence-into-a-2-3-tree">Example 1. Insert a sorted sequence into a 2-3 tree</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cost-saving-techniques"><a class="header" href="#cost-saving-techniques">Cost Saving Techniques</a></h1>
+<ul>
+<li>
+<p>平行計算當中，可能會因為平行的特質導致浪費計算資源:</p>
+<ul>
+<li>重複計算</li>
+<li>閒置的處理器(最主要的原因)</li>
+</ul>
+</li>
+<li>
+<p>e.g. 在balanced binary tree 的例子中，每算完一層，就會多出一半的處理器閒置。</p>
+</li>
+<li>
+<p>所以在這個章節中我們會整理一些可以減少這些閒置資源的技巧。</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="accelerated-cascading"><a class="header" href="#accelerated-cascading">Accelerated Cascading</a></h1>
+<ul>
+<li>精神: 先用慢但optimal的算法算到一半，再用快的算法算完，希望能保有原有的時間複雜度，但又能省去浪費的成本。</li>
+</ul>
+<h2 id="example-1-finding-maximum-using-double-logarithmic-depth-tree"><a class="header" href="#example-1-finding-maximum-using-double-logarithmic-depth-tree">Example 1. Finding maximum using double logarithmic depth tree</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="brentt-theorem"><a class="header" href="#brentt-theorem">Brentt Theorem</a></h1>
+<ul>
+<li>
+<p>精神: 可用更少的processor模擬出原本的parallel algorithm，則定理可給出模擬出的時間估計。(如果能模擬成功的話)</p>
+</li>
+<li>
+<p>定理內容:</p>
+</li>
+</ul>
 
                     </main>
 

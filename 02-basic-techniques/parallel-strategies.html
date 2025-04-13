@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Categorization of shared-memory computers - Notes on Parallel Algorithm Design</title>
+        <title>Parallel Strategies - Notes on Parallel Algorithm Design</title>
 
 
         <!-- Custom HTML head -->
@@ -157,44 +157,18 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="categorization-of-pram-models"><a class="header" href="#categorization-of-pram-models">Categorization of PRAM models</a></h1>
-<h2 id="1-models"><a class="header" href="#1-models">1. Models</a></h2>
-<p><img src="https://github.com/user-attachments/assets/a5172401-3321-4e2e-9f98-5c8c9491bddd" alt="image" /></p>
-<ul>
-<li>Note that
-\[
-\begin{align}
-\text{completely connected interconnection network} &amp;\Leftrightarrow \text{shared-memory computer} \\
-\text{SIMD shared-memory computer} &amp;\Leftrightarrow \text{PRAM} \\
-&amp;\Leftrightarrow \text{Parallel Random Access Machine}
-\end{align}
-\]</li>
-</ul>
-<h2 id="2-resuolution-rules-for-concurrent-write"><a class="header" href="#2-resuolution-rules-for-concurrent-write">2. Resuolution rules for concurrent write</a></h2>
-<h3 id="a-weak-conflict-resolution-rule-w-pram"><a class="header" href="#a-weak-conflict-resolution-rule-w-pram">a. Weak conflict-resolution rule (W-PRAM)</a></h3>
-<ul>
-<li>只能寫在固定的記憶體區塊。</li>
-<li>只能寫入0或1。</li>
-<li>同時寫入的話，只能都寫入1才能成功寫入。</li>
-</ul>
-<h3 id="b-equality-conflict-resolution-rule"><a class="header" href="#b-equality-conflict-resolution-rule">b. Equality conflict-resolution rule</a></h3>
-<ul>
-<li>只有在大家都寫同一個值的時候才能成功寫入</li>
-</ul>
-<h3 id="c-priority-conflict-resolution-rule"><a class="header" href="#c-priority-conflict-resolution-rule">c. Priority conflict-resolution rule</a></h3>
-<ul>
-<li>事先定好優先級，等級高的說了算。</li>
-</ul>
+                        <h1 id="parallel-strategies"><a class="header" href="#parallel-strategies">Parallel Strategies</a></h1>
+<p>本章將會整理一些常見的平行策略，並且舉例說明這些策略的運作方式。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../01-introduction/performance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../01-introduction/shared-memory-categorization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../02-basic-techniques/parallel-strategies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../02-basic-techniques/strategies/divide-and-conquer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -204,11 +178,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../01-introduction/performance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../01-introduction/shared-memory-categorization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../02-basic-techniques/parallel-strategies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../02-basic-techniques/strategies/divide-and-conquer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
