@@ -1,6 +1,12 @@
 # Schartz's Classification
 
-## 1. Types
+## 1. Important characteristics of Parallel Computers
+- n: number of processors
+- diameter: The maximum distance between any two processors in the network
+- max degree: The maximum number of connections that a processor can have with other processors
+- link complexity: The total number of links in the system
+
+## 2. Types
 
 #### a. Paracomputer (shared-memory computer)
 - Cost of communication between processors is O(1).

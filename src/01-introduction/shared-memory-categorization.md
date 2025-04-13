@@ -1,10 +1,6 @@
-# Categorization of PRAM models
+# Categorization of shared memory computers
 
-
-## 1. Models
-![image](https://github.com/user-attachments/assets/a5172401-3321-4e2e-9f98-5c8c9491bddd)
-
-- Note that
+Note that
 \\[
 \begin{align}
 \text{completely connected interconnection network} &\Leftrightarrow \text{shared-memory computer} \\\\
@@ -12,6 +8,9 @@
                                    &\Leftrightarrow \text{Parallel Random Access Machine}
 \end{align}
 \\]
+
+## 1. Models
+![image](https://github.com/user-attachments/assets/a5172401-3321-4e2e-9f98-5c8c9491bddd)
 
 ## 2. Resuolution rules for concurrent write 
 ### a. Weak conflict-resolution rule (W-PRAM)
