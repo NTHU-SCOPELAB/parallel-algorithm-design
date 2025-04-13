@@ -268,7 +268,37 @@
 <tr><td>experiment (number)</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
 <tr><td>algorithm (big-\(O\))</td><td>✔️</td><td>Δ</td><td>❌</td></tr>
 </tbody></table>
-</div>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="categorization-of-pram-models"><a class="header" href="#categorization-of-pram-models">Categorization of PRAM models</a></h1>
+<ul>
+<li>From now on, we'll focus on SIMD PRAM models.</li>
+</ul>
+<h2 id="1-models"><a class="header" href="#1-models">1. Models</a></h2>
+<ul>
+<li>Note that
+\[
+\begin{align}
+\text{completely connected interconnection network} &amp;\Leftrightarrow \text{shared-memory computer} \\
+\text{SIMD shared-memory computer} &amp;\Leftrightarrow \text{PRAM} \\
+&amp;\Leftrightarrow \text{Parallel Random Access Machine}
+\end{align}
+\]</li>
+</ul>
+<h2 id="2-resuolution-rules-for-concurrent-write"><a class="header" href="#2-resuolution-rules-for-concurrent-write">2. Resuolution rules for concurrent write</a></h2>
+<h3 id="a-weak-conflict-resolution-rule-w-pram"><a class="header" href="#a-weak-conflict-resolution-rule-w-pram">a. Weak conflict-resolution rule (W-PRAM)</a></h3>
+<ul>
+<li>只能寫在固定的記憶體區塊。</li>
+<li>只能寫入0或1。</li>
+<li>同時寫入的話，只能都寫入1才能成功寫入。</li>
+</ul>
+<h3 id="b-equality-conflict-resolution-rule"><a class="header" href="#b-equality-conflict-resolution-rule">b. Equality conflict-resolution rule</a></h3>
+<ul>
+<li>只有在大家都寫同一個值的時候才能正常寫入</li>
+</ul>
+<h3 id="c-priority-conflict-resolution-rule"><a class="header" href="#c-priority-conflict-resolution-rule">c. Priority conflict-resolution rule</a></h3>
+<ul>
+<li>事先定好優先級</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
