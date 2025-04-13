@@ -3,6 +3,7 @@
 - From now on, we'll focus on SIMD PRAM models.
 
 ## 1. Models
+![image](https://github.com/user-attachments/assets/a5172401-3321-4e2e-9f98-5c8c9491bddd)
 
 - Note that
 \\[
