@@ -196,7 +196,14 @@
 <li>M. J. Flynn, "Very high speed computing systems," Proceedings of the IEEE, vol. 54, 1966, pp. 1901-1909</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="schartzs-classification"><a class="header" href="#schartzs-classification">Schartz's Classification</a></h1>
-<h2 id="1-types"><a class="header" href="#1-types">1. Types</a></h2>
+<h2 id="1-important-characteristics-of-parallel-computers"><a class="header" href="#1-important-characteristics-of-parallel-computers">1. Important characteristics of Parallel Computers</a></h2>
+<ul>
+<li>n: number of processors</li>
+<li>diameter: The maximum distance between any two processors in the network</li>
+<li>max degree: The maximum number of connections that a processor can have with other processors</li>
+<li>link complexity: The total number of links in the system</li>
+</ul>
+<h2 id="2-types-1"><a class="header" href="#2-types-1">2. Types</a></h2>
 <h4 id="a-paracomputer-shared-memory-computer"><a class="header" href="#a-paracomputer-shared-memory-computer">a. Paracomputer (shared-memory computer)</a></h4>
 <ul>
 <li>Cost of communication between processors is O(1).</li>
@@ -268,19 +275,17 @@
 <tr><td>experiment (number)</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
 <tr><td>algorithm (big-\(O\))</td><td>✔️</td><td>Δ</td><td>❌</td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="categorization-of-pram-models"><a class="header" href="#categorization-of-pram-models">Categorization of PRAM models</a></h1>
-<h2 id="1-models"><a class="header" href="#1-models">1. Models</a></h2>
-<p><img src="https://github.com/user-attachments/assets/a5172401-3321-4e2e-9f98-5c8c9491bddd" alt="image" /></p>
-<ul>
-<li>Note that
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="categorization-of-shared-memory-computers"><a class="header" href="#categorization-of-shared-memory-computers">Categorization of shared memory computers</a></h1>
+<p>Note that
 \[
 \begin{align}
 \text{completely connected interconnection network} &amp;\Leftrightarrow \text{shared-memory computer} \\
 \text{SIMD shared-memory computer} &amp;\Leftrightarrow \text{PRAM} \\
 &amp;\Leftrightarrow \text{Parallel Random Access Machine}
 \end{align}
-\]</li>
-</ul>
+\]</p>
+<h2 id="1-models"><a class="header" href="#1-models">1. Models</a></h2>
+<p><img src="https://github.com/user-attachments/assets/a5172401-3321-4e2e-9f98-5c8c9491bddd" alt="image" /></p>
 <h2 id="2-resuolution-rules-for-concurrent-write"><a class="header" href="#2-resuolution-rules-for-concurrent-write">2. Resuolution rules for concurrent write</a></h2>
 <h3 id="a-weak-conflict-resolution-rule-w-pram"><a class="header" href="#a-weak-conflict-resolution-rule-w-pram">a. Weak conflict-resolution rule (W-PRAM)</a></h3>
 <ul>
