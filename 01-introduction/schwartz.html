@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Flynn&#x27;s Classification - Notes on Parallel Algorithm Design</title>
+        <title>Schwartz&#x27;s Classification - Notes on Parallel Algorithm Design</title>
 
 
         <!-- Custom HTML head -->
@@ -30,11 +30,14 @@
 
         <!-- Custom theme stylesheets -->
 
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc.js"></script>
@@ -44,8 +47,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -59,7 +62,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -72,8 +76,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -109,6 +113,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -152,38 +157,39 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="flynns-classification"><a class="header" href="#flynns-classification">Flynn's Classification</a></h1>
-<h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
+                        <h1 id="schartzs-classification"><a class="header" href="#schartzs-classification">Schartz's Classification</a></h1>
+<h2 id="1-types"><a class="header" href="#1-types">1. Types</a></h2>
+<h4 id="a-paracomputer-shared-memory-computer"><a class="header" href="#a-paracomputer-shared-memory-computer">a. Paracomputer (shared-memory computer)</a></h4>
 <ul>
-<li>Instruction stream (I):
-<ul>
-<li>a sequence of instructions performed by a computer</li>
+<li>Cost of communication between processors is O(1).</li>
+<li>SIMD shared-memory computer is also called <em><strong>Parallel Random Access Machine (PRAM)</strong></em></li>
 </ul>
-</li>
-<li>Data stream (D):
+<h4 id="b-ultracomputer-processors-with-interconnection-network"><a class="header" href="#b-ultracomputer-processors-with-interconnection-network">b. Ultracomputer (processors with interconnection network)</a></h4>
+<h5 id="i-linear-processor-array"><a class="header" href="#i-linear-processor-array">i. Linear Processor Array</a></h5>
+<h5 id="ii-mesh-connected-computer"><a class="header" href="#ii-mesh-connected-computer">ii. Mesh-Connected Computer</a></h5>
+<h5 id="iii-tree-machine"><a class="header" href="#iii-tree-machine">iii. Tree Machine</a></h5>
+<h5 id="iv-hypercube"><a class="header" href="#iv-hypercube">iv. Hypercube</a></h5>
+<h5 id="v-cube-connected-cycle-network"><a class="header" href="#v-cube-connected-cycle-network">v. Cube-connected Cycle network</a></h5>
+<h5 id="vi-perfect-shuffle"><a class="header" href="#vi-perfect-shuffle">vi. Perfect Shuffle</a></h5>
+<h5 id="vii-shuffle-exchange-network-developed-from-perfect-shuffle"><a class="header" href="#vii-shuffle-exchange-network-developed-from-perfect-shuffle">vii. Shuffle Exchange Network (developed from perfect shuffle)</a></h5>
+<h5 id="viii-single-channel-broadcast-communication-system"><a class="header" href="#viii-single-channel-broadcast-communication-system">viii. Single-channel broadcast communication system</a></h5>
 <ul>
-<li>a sequence of data used to execute an instruction stream</li>
+<li>Modern CPU architecture</li>
 </ul>
-</li>
-</ul>
-<h2 id="2-types"><a class="header" href="#2-types">2. Types</a></h2>
+<h5 id="ix-mesh-connected-computer-with-multiple-broadcasting-channels"><a class="header" href="#ix-mesh-connected-computer-with-multiple-broadcasting-channels">ix. Mesh-connected computer with multiple broadcasting channels</a></h5>
 <ul>
-<li>SISD: single instruction stream, single data stream.</li>
-<li>SIMD: single instruction stream, multiple data stream.</li>
-<li>MISD: multiple instruction stream, single data stream.</li>
-<li>MIMD: multiple instruction stream, multiple data stream.</li>
-</ul>
-<h2 id="ref"><a class="header" href="#ref">Ref</a></h2>
-<ul>
-<li>M. J. Flynn, "Very high speed computing systems," Proceedings of the IEEE, vol. 54, 1966, pp. 1901-1909</li>
+<li>Have separated channels for each columns and rows</li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../01-introduction/flynn.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="../01-classification/schwartz.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../01-introduction/performance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -193,8 +199,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../01-introduction/flynn.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="../01-classification/schwartz.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../01-introduction/performance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Notes on Parallel Algorithm Design</title>
-        <meta name="robots" content="noindex">
+        <title>Flynn&#x27;s Classification - Notes on Parallel Algorithm Design</title>
 
 
         <!-- Custom HTML head -->
@@ -13,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -36,12 +35,12 @@
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../toc.js"></script>
     </head>
     <body>
     <div id="body-container">
@@ -94,7 +93,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -129,7 +128,7 @@
                     <h1 class="menu-title">Notes on Parallel Algorithm Design</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -183,76 +182,15 @@
 <ul>
 <li>M. J. Flynn, "Very high speed computing systems," Proceedings of the IEEE, vol. 54, 1966, pp. 1901-1909</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="schartzs-classification"><a class="header" href="#schartzs-classification">Schartz's Classification</a></h1>
-<h2 id="1-types"><a class="header" href="#1-types">1. Types</a></h2>
-<h4 id="a-paracomputer-shared-memory-computer"><a class="header" href="#a-paracomputer-shared-memory-computer">a. Paracomputer (shared-memory computer)</a></h4>
-<ul>
-<li>Cost of communication between processors is O(1).</li>
-<li>SIMD shared-memory computer is also called <em><strong>Parallel Random Access Machine (PRAM)</strong></em></li>
-</ul>
-<h4 id="b-ultracomputer-processors-with-interconnection-network"><a class="header" href="#b-ultracomputer-processors-with-interconnection-network">b. Ultracomputer (processors with interconnection network)</a></h4>
-<h5 id="i-linear-processor-array"><a class="header" href="#i-linear-processor-array">i. Linear Processor Array</a></h5>
-<h5 id="ii-mesh-connected-computer"><a class="header" href="#ii-mesh-connected-computer">ii. Mesh-Connected Computer</a></h5>
-<h5 id="iii-tree-machine"><a class="header" href="#iii-tree-machine">iii. Tree Machine</a></h5>
-<h5 id="iv-hypercube"><a class="header" href="#iv-hypercube">iv. Hypercube</a></h5>
-<h5 id="v-cube-connected-cycle-network"><a class="header" href="#v-cube-connected-cycle-network">v. Cube-connected Cycle network</a></h5>
-<h5 id="vi-perfect-shuffle"><a class="header" href="#vi-perfect-shuffle">vi. Perfect Shuffle</a></h5>
-<h5 id="vii-shuffle-exchange-network-developed-from-perfect-shuffle"><a class="header" href="#vii-shuffle-exchange-network-developed-from-perfect-shuffle">vii. Shuffle Exchange Network (developed from perfect shuffle)</a></h5>
-<h5 id="viii-single-channel-broadcast-communication-system"><a class="header" href="#viii-single-channel-broadcast-communication-system">viii. Single-channel broadcast communication system</a></h5>
-<ul>
-<li>Modern CPU architecture</li>
-</ul>
-<h5 id="ix-mesh-connected-computer-with-multiple-broadcasting-channels"><a class="header" href="#ix-mesh-connected-computer-with-multiple-broadcasting-channels">ix. Mesh-connected computer with multiple broadcasting channels</a></h5>
-<ul>
-<li>Have separated channels for each columns and rows</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="performance-of-parallel-algorithms"><a class="header" href="#performance-of-parallel-algorithms">Performance of Parallel Algorithms</a></h1>
-<h2 id="1-definitions"><a class="header" href="#1-definitions">1. Definitions</a></h2>
-<p>Given each problem and \(p\) processors, we can define the following terms for the parallel algorithms:</p>
-<h3 id="a-speedup"><a class="header" href="#a-speedup">a. Speedup</a></h3>
-<p>\[
-\text{Speedup} = \frac{\text{worst-case running time of fastest known sequential algorithm}}{\text{worst-case running time of parallel algorithm}}
-\]</p>
-<ul>
-<li>A parallel algorithm is said to achieve <em><strong>linear speedup</strong></em> if the speedup with \(p\) processors is $$\theta (p)$$.</li>
-<li>除非有外部因素, e.g. I/O, CR, CW等不同的模型因素，否則不可能有超過<em><strong>linear speedup</strong></em>的情況 (aka <em><strong>superlinear speedup</strong></em>)。</li>
-</ul>
-<h3 id="b-cost"><a class="header" href="#b-cost">b. Cost</a></h3>
-<p>\[
-\begin{align}
-\text{Cost of sequential algorithm} &amp;= (\text{sequential running time}) \times (\text{number of processors}) = T_s \times 1 = T_s \\
-\text{Cost of parallel algorithm} &amp;= (\text{parallel running time}) \times (\text{number of processors}) = T_p \times p
-\end{align}
-\]</p>
-<ul>
-<li>A parallel algorithm is said to be <em><strong>cost optimal</strong></em> if the cost of the parallel algorithm matches the cost of the sequential algorithm in terms of big-O notation, i.e. $$T_p \times p = O(T_s)$$.</li>
-</ul>
-<h3 id="c-efficiency"><a class="header" href="#c-efficiency">c. Efficiency</a></h3>
-<p>\[
-\begin{align}
-\text{Efficiency} &amp;= \frac{\text{cost of fastest known sequential algorithm}}{\text{cost of parallel algorithm}} \\
-&amp;= \frac{T_s \times 1}{T_p \times p} \\
-&amp;= \frac{\text{parallel speed up}}{p} \\
-&amp;\leq 1
-\end{align}
-\]</p>
-<h2 id="2-remark"><a class="header" href="#2-remark">2. Remark</a></h2>
-<h3 id="a-cost-optimal-is-equivalent-to-linear-speedup"><a class="header" href="#a-cost-optimal-is-equivalent-to-linear-speedup">a. Cost optimal is equivalent to linear speedup</a></h3>
-<p>\[
-\text{Cost optimal} \Leftrightarrow \text{linear speedup} \Leftrightarrow \text{efficiency} = 1
-\]</p>
-<h3 id="b-does-these-notations-actually-make-sense-no"><a class="header" href="#b-does-these-notations-actually-make-sense-no">b. Does these notations actually make sense? (No)</a></h3>
-<div class="table-wrapper"><table><thead><tr><th></th><th>Cost</th><th>Speedup</th><th>Efficiency</th></tr></thead><tbody>
-<tr><td>notation</td><td>\( p \cdot  T_p \)</td><td>\( \frac{T_s}{T_p} \)</td><td>\( \frac{T_s}{\text{cost}} = \frac{\text{speed up}}{p} \)</td></tr>
-<tr><td>experiment (number)</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
-<tr><td>algorithm (big-\(O\))</td><td>✔️</td><td>Δ</td><td>❌</td></tr>
-</tbody></table>
-</div>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
+                            <a rel="next prefetch" href="../01-introduction/schwartz.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -261,6 +199,9 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
+                    <a rel="next prefetch" href="../01-introduction/schwartz.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -273,23 +214,16 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script>
-        window.addEventListener('load', function() {
-            MathJax.Hub.Register.StartupHook('End', function() {
-                window.setTimeout(window.print, 100);
-            });
-        });
-        </script>
 
     </div>
     </body>

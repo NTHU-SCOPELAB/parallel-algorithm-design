@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Schwartz&#x27;s Classification - Notes on Parallel Algorithm Design</title>
+        <title>Performance of Parallel Algorithms - Notes on Parallel Algorithm Design</title>
 
 
         <!-- Custom HTML head -->
@@ -30,11 +30,14 @@
 
         <!-- Custom theme stylesheets -->
 
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc.js"></script>
@@ -44,8 +47,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -59,7 +62,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -72,8 +76,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -109,6 +113,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -152,13 +157,53 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="schartzs-classification"><a class="header" href="#schartzs-classification">Schartz's Classification</a></h1>
-
+                        <h1 id="performance-of-parallel-algorithms"><a class="header" href="#performance-of-parallel-algorithms">Performance of Parallel Algorithms</a></h1>
+<h2 id="1-definitions"><a class="header" href="#1-definitions">1. Definitions</a></h2>
+<p>Given each problem and \(p\) processors, we can define the following terms for the parallel algorithms:</p>
+<h3 id="a-speedup"><a class="header" href="#a-speedup">a. Speedup</a></h3>
+<p>\[
+\text{Speedup} = \frac{\text{worst-case running time of fastest known sequential algorithm}}{\text{worst-case running time of parallel algorithm}}
+\]</p>
+<ul>
+<li>A parallel algorithm is said to achieve <em><strong>linear speedup</strong></em> if the speedup with \(p\) processors is $$\theta (p)$$.</li>
+<li>除非有外部因素, e.g. I/O, CR, CW等不同的模型因素，否則不可能有超過<em><strong>linear speedup</strong></em>的情況 (aka <em><strong>superlinear speedup</strong></em>)。</li>
+</ul>
+<h3 id="b-cost"><a class="header" href="#b-cost">b. Cost</a></h3>
+<p>\[
+\begin{align}
+\text{Cost of sequential algorithm} &amp;= (\text{sequential running time}) \times (\text{number of processors}) = T_s \times 1 = T_s \\
+\text{Cost of parallel algorithm} &amp;= (\text{parallel running time}) \times (\text{number of processors}) = T_p \times p
+\end{align}
+\]</p>
+<ul>
+<li>A parallel algorithm is said to be <em><strong>cost optimal</strong></em> if the cost of the parallel algorithm matches the cost of the sequential algorithm in terms of big-O notation, i.e. $$T_p \times p = O(T_s)$$.</li>
+</ul>
+<h3 id="c-efficiency"><a class="header" href="#c-efficiency">c. Efficiency</a></h3>
+<p>\[
+\begin{align}
+\text{Efficiency} &amp;= \frac{\text{cost of fastest known sequential algorithm}}{\text{cost of parallel algorithm}} \\
+&amp;= \frac{T_s \times 1}{T_p \times p} \\
+&amp;= \frac{\text{parallel speed up}}{p} \\
+&amp;\leq 1
+\end{align}
+\]</p>
+<h2 id="2-remark"><a class="header" href="#2-remark">2. Remark</a></h2>
+<h3 id="a-cost-optimal-is-equivalent-to-linear-speedup"><a class="header" href="#a-cost-optimal-is-equivalent-to-linear-speedup">a. Cost optimal is equivalent to linear speedup</a></h3>
+<p>\[
+\text{Cost optimal} \Leftrightarrow \text{linear speedup} \Leftrightarrow \text{efficiency} = 1
+\]</p>
+<h3 id="b-does-these-notations-actually-make-sense-no"><a class="header" href="#b-does-these-notations-actually-make-sense-no">b. Does these notations actually make sense? (No)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Cost</th><th>Speedup</th><th>Efficiency</th></tr></thead><tbody>
+<tr><td>notation</td><td>\( p \cdot  T_p \)</td><td>\( \frac{T_s}{T_p} \)</td><td>\( \frac{T_s}{\text{cost}} = \frac{\text{speed up}}{p} \)</td></tr>
+<tr><td>experiment (number)</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
+<tr><td>algorithm (big-\(O\))</td><td>✔️</td><td>Δ</td><td>❌</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../01-classification/flynn.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../01-introduction/schwartz.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -169,7 +214,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../01-classification/flynn.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../01-introduction/schwartz.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
