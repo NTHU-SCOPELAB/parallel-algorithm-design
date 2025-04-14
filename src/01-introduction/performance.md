@@ -8,7 +8,7 @@ Given each problem and \\(p\\) processors, we can define the following terms for
 \text{Speedup} = \frac{\text{worst-case running time of fastest known sequential algorithm}}{\text{worst-case running time of parallel algorithm}}
 \\]
 
-- A parallel algorithm is said to achieve ***linear speedup*** if the speedup with \\(p\\) processors is $$\theta (p)$$.
+- A parallel algorithm is said to achieve ***linear speedup*** if the speedup with \\(p\\) processors is \\(\theta (p)\\).
 - 除非有外部因素, e.g. I/O, CR, CW等不同的模型因素，否則不可能有超過***linear speedup***的情況 (aka ***superlinear speedup***)。
 
 ### b. Cost
