@@ -9,11 +9,15 @@
 ## 2. Types
 
 #### a. Paracomputer (shared-memory computer)
+<img width="355" alt="image" src="https://github.com/user-attachments/assets/36e7e7cb-e54d-4128-a760-73de577c4c01" />
+
 - Cost of communication between processors is O(1).
 - SIMD shared-memory computer is also called ***Parallel Random Access Machine (PRAM)***
 
 
 #### b. Ultracomputer (processors with interconnection network)
+<img width="365" alt="image" src="https://github.com/user-attachments/assets/b929a22a-fd82-4429-9f51-46681aba962a" />
+
 
 ##### i. Linear Processor Array
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/1424ebc8-67cc-4b59-b015-48b47527a48a" />
