@@ -414,6 +414,23 @@ n &= 2^k = 3^2 = 9 \\\\
 <li>Output: the convex hull \( CH(S) \) of \( S \) (clockwise)</li>
 <li>Model: <em><strong>CREW</strong></em> PRAM of \( n \) processors<br />
 <img width="430" alt="image" src="https://github.com/user-attachments/assets/c2509a89-0536-4b49-8177-1010f0e69295" /></li>
+<li>精神:
+<ol>
+<li>先將所有點按照x座標排序</li>
+<li>將所有點分成兩組，左邊的點和右邊的點</li>
+<li>對左邊的點和右邊的點分別計算出上半部和下半部的convex hull</li>
+<li>最後再合併兩邊的convex hull (?)</li>
+</ol>
+</li>
+<li>合併convex hull的方法:
+<ol>
+<li>對於左邊的點，使用parallel m-way search，找出最上面的點。
+<ul>
+<li>對於右邊的點，使用parallel m-way search，找出左邊的點對應的最上面的點。</li>
+</ul>
+</li>
+</ol>
+</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="doubling-pointer-jumping"><a class="header" href="#doubling-pointer-jumping">Doubling (pointer-jumping)</a></h1>
 <ul>
