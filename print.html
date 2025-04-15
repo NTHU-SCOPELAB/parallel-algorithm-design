@@ -463,7 +463,7 @@ n &= 2^k = 3^2 = 9 \\\\
 <li>精神:
 <ul>
 <li>一開始已排序，所以已經知道自己的local rank</li>
-<li>選定一邊，每m個人去對面找自己能打敗多少人，記下來。
+<li>選定一邊，每m個人去對面找自己最強能打敗誰，抄下對方的id(在他們那邊打敗多少人)。
 <ul>
 <li>按去找的人打敗的分組，然後分工(兩邊)每人都去對面看自己打敗多少人。</li>
 <li>如果分組後這邊少那邊多，就跳過不做。</li>
@@ -518,7 +518,7 @@ n &= 2^k = 3^2 = 9 \\\\
 </ul>
 <h3 id="2-accelerated-cascading"><a class="header" href="#2-accelerated-cascading">2. Accelerated Cascading</a></h3>
 <ul>
-<li>如果實際計算量\( M \approx \text{cost} \) =&gt; 代表處理器都有用到</li>
+<li>如果實際計算量\( M \approx \text{cost} \) =&gt; 代表處理器基本上都有用到</li>
 <li>但這並不代表你的演算法是optimal的，你可能只是都把計算資源丟進水裡面而已。</li>
 <li>可以用Accelerated Cascading來向optimal的演算法靠近。</li>
 </ul>
