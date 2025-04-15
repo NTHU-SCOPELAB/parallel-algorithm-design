@@ -9,5 +9,6 @@
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/bdef7ce4-fee7-4a92-ac7c-6c50727a5dbe" />
 - 精神:
   - 一開始大家都平行快速找到插入的位置(不用考慮有chain的問題)，並建好leaf放數字。
-  - 因為2-3 tree最多三個child，所以如果超過的話，直接除以二就行，chain的長度就會減半。
-  - 重複幾次，可以上去的就上去，上不去的就再切兩半。
+  - 因為2-3 tree最多三個child，所以如果超過的話，chain的中位數連到parent，chain的長度就會減半。
+  - 重複幾次，可以上去的就上去，上不去的就再切兩半(chain的中位數上去)。
+  - 每一層都會有chain，中間層的節點也有可能(因為下面的insertion)，但沒有影響，帶著小孩一起去找新家就好。
