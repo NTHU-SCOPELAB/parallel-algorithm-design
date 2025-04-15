@@ -7,3 +7,7 @@
 - Output: a 2-3 tree obtained by inserting the items \\( b_1, b_2, \ldots , b_k \\) into T.
 - Model: ***CREW*** PRAM of \\( k \\) processors
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/bdef7ce4-fee7-4a92-ac7c-6c50727a5dbe" />
+- 精神:
+  - 一開始大家都平行快速找到插入的位置(不用考慮有chain的問題)，並建好leaf放數字。
+  - 因為2-3 tree最多三個child，所以如果超過的話，直接除以二就行，chain的長度就會減半。
+  - 重複幾次，可以上去的就上去，上不去的就再切兩半。

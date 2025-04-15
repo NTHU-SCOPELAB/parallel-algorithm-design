@@ -16,6 +16,6 @@
 - 可以用Brent's Theorem來減少閒置的處理器數量。
 
 ### 2. Accelerated Cascading
-- 如果實際計算量\\( M \approx \text{cost} \\) => 代表處理器都有用到
+- 如果實際計算量\\( M \approx \text{cost} \\) => 代表處理器基本上都有用到
 - 但這並不代表你的演算法是optimal的，你可能只是都把計算資源丟進水裡面而已。
 - 可以用Accelerated Cascading來向optimal的演算法靠近。
