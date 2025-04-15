@@ -1,6 +1,7 @@
 # Brent Theorem
 
 - 精神: 可用更少的processor模擬出原本的parallel algorithm，則定理可給出模擬出的時間估計。(如果能模擬成功的話)
+- 適用情形: 當實際計算量\\( M << \text{cost} \\) 。
 
 - 定理內容:
 給定任意平行演算法A，假設A的執行時間為T，且實際的計算指令數為M。如果我們可以用\\(p \\)個處理器來成功模擬A的執行，則該模擬可在\\( O(T + \frac{M}{p}) \\)的時間內完成。
@@ -27,11 +28,7 @@ M = 1 + 2 + 4 + \ldots + \frac{n}{2} = n - 1 = O(n)
 \\[
 O(\log n + \frac{n}{p})
 \\]
-- Hence, we can set \\( p = \frac{n}{\log n} \\) to minimize the cost, while retaining the same time complexity:
+- Hence, we can plug in \\( p = \frac{n}{\log n} \\) to minimize the cost, while retaining the same time complexity:
 \\[
 O(\log n + \frac{n}{p}) = O(\log n + \frac{n}{\frac{n}{\log n}}) = O(\log n + \log n) = O(\log n)
 \\]
-
-
-
-
