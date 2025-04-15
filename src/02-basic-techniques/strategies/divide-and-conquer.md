@@ -29,3 +29,12 @@
 - Output: the convex hull \\( CH(S) \\) of \\( S \\) (clockwise)
 - Model: ***CREW*** PRAM of \\( n \\) processors  
 <img width="430" alt="image" src="https://github.com/user-attachments/assets/c2509a89-0536-4b49-8177-1010f0e69295" />
+- 精神:
+  1. 先將所有點按照x座標排序
+  2. 將所有點分成兩組，左邊的點和右邊的點
+  3. 對左邊的點和右邊的點分別計算出上半部和下半部的convex hull
+  4. 最後再合併兩邊的convex hull (?)
+- 合併convex hull的方法:
+  1. 對於左邊的點，使用parallel m-way search，找出最上面的點。
+     - 對於右邊的點，使用parallel m-way search，找出左邊的點對應的最上面的點。
+
