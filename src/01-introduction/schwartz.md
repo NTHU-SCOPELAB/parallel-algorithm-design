@@ -37,7 +37,7 @@ n &= 7 \\\\
 n &= k^2 = 3^2 = 9 \\\\
 \text{diameter} &= 2(k-1) \\\\
 \text{max degree} &= 4 \\\\
-\text{link complexity} &= (k-1) * k * 2 \\\\
+\text{link complexity} &= (k-1) \cdot k \cdot 2 \\\\
 \end{align}
 \]
 
