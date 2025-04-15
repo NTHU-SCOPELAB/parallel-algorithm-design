@@ -163,11 +163,17 @@
 </ul>
 <h2 id="example-1-parallel-prefix-on-rooted-directed-tree-sm-02"><a class="header" href="#example-1-parallel-prefix-on-rooted-directed-tree-sm-02">Example 1. Parallel prefix on rooted directed tree (<a href="https://github.com/NTHU-SCOPELAB/parallel-algorithm-code/tree/main/SM02_Parallel_Prefix_On_A_Rooted_Directed_Tree">SM-02</a>)</a></h2>
 <ul>
-<li>input: linked list</li>
+<li>Input: <code>P[1...n]</code>, <code>W[1...n]</code> (linked list, but in the form of array)</li>
+<li>Output: Update each entry in <code>W</code> such that it is equal to the sum of the weights of nodes on the path from i to the root of its tree. <code>W[1...n]</code> (array)</li>
+<li>Model: <em><strong>CREW</strong></em> PRAM of \( n \) processors<br />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/db66b04f-902c-430b-9d60-e5e9214fb258" /></li>
 </ul>
 <h2 id="example-2-prefix-sums-prefix-computation-sm-03"><a class="header" href="#example-2-prefix-sums-prefix-computation-sm-03">Example 2. Prefix sums (prefix computation) (<a href="https://github.com/NTHU-SCOPELAB/parallel-algorithm-code/tree/main/SM03_Prefix_Sums">SM-03</a>)</a></h2>
 <ul>
-<li>input: array</li>
+<li>Input: <code>X[1...n]</code> (array)</li>
+<li>Output: <code>S[1...n]</code>, where <code>S[i] = X[1] + X[2] + ... + X[i]</code></li>
+<li>Model: <em><strong>EREW</strong></em> PRAM of \( n \) processors<br />
+<img width="513" alt="image" src="https://github.com/user-attachments/assets/c0b401bc-c950-4f5d-8e35-77b46497b90f" /></li>
 </ul>
 
                     </main>
