@@ -10,3 +10,12 @@
 
 - 所以在這個章節中我們會整理一些可以減少這些閒置資源的技巧。
 
+## 結論
+### 1. Brent's Theorem
+- 實際計算量\\( M << \text{cost} \\)  => 代表有很多閒置的處理器
+- 可以用Brent's Theorem來減少閒置的處理器數量。
+
+### 2. Accelerated Cascading
+- 如果實際計算量\\( M \approx \text{cost} \\) => 代表處理器都有用到
+- 但這並不代表你的演算法是optimal的，你可能只是都把計算資源丟進水裡面而已。
+- 可以用Accelerated Cascading來向optimal的演算法靠近。
