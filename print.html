@@ -482,6 +482,37 @@ n &= 2^k = 3^2 = 9 \\\\
 <li>Output: <code>max(A[1...n])</code></li>
 <li>Model: <em><strong>CRCW</strong></em> PRAM of \( \frac{n}{\log\log n} \) processors</li>
 </ul>
+<h3 id="savings"><a class="header" href="#savings">Savings</a></h3>
+<ul>
+<li>
+<p>Originally, we have:
+\[
+\begin{align}
+p   &amp;= n = 2^{2^k} \\
+T(n)  &amp;= O(\log \log n) \\
+\text{Cost} &amp;= O(n \log \log n) \\
+\end{align}
+\]</p>
+</li>
+<li>
+<p>By swapping part of the computation with an optimal algorithm, we have the computation time as follow:
+\[
+O(\log \log n) + O(\frac{n}{p}) \approx O(\log \log n)
+\]</p>
+</li>
+<li>
+<p>Hence, we can plug in \( p = \frac{n}{\log \log n} \) to minimize the cost, while retaining the same time complexity:
+\[
+O(\log \log n) + O(\frac{n}{p}) = O(\log \log n) + O(\frac{n}{\frac{n}{\log \log n}}) = O(\log \log n) + O(\log \log n) = O(\log \log n)
+\]</p>
+</li>
+</ul>
+<h2 id="example-2-3-coloring-on-a-directed-cycle-sm-11-brents-theorem-does-not-apply-directly"><a class="header" href="#example-2-3-coloring-on-a-directed-cycle-sm-11-brents-theorem-does-not-apply-directly">Example 2. 3-coloring on a directed cycle (<a href="https://github.com/NTHU-SCOPELAB/parallel-algorithm-code/tree/main/SM11_3_Coloring_On_A_Directed_Cycle">SM-11</a>, Brent's Theorem does not apply directly)</a></h2>
+<ul>
+<li>Input: <code>A[1...n]</code> (array, directed cycle)</li>
+<li>Output: A coloring <code>C[1...n]</code>, <code>C[i]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>. In addition, <code>C[i]!=C[j]</code> if <code>S[i]=j</code></li>
+<li>Model: <em><strong>EREW</strong></em> PRAM of \( n \) processors</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="brent-theorem"><a class="header" href="#brent-theorem">Brent Theorem</a></h1>
 <ul>
 <li>
@@ -505,7 +536,7 @@ n &= 2^k = 3^2 = 9 \\\\
 <li>Time: \( O(\log n) \)</li>
 <li>Cost: \( O(n \log n) \)</li>
 </ul>
-<h3 id="savings"><a class="header" href="#savings">Savings</a></h3>
+<h3 id="savings-1"><a class="header" href="#savings-1">Savings</a></h3>
 <ul>
 <li>
 <p>We currently have
@@ -520,7 +551,7 @@ O(\log n + \frac{n}{p})
 \]</p>
 </li>
 <li>
-<p>Hence, we can set \( p = \frac{n}{\log n} \) to minimize the cost, while retaining the same time complexity:
+<p>Hence, we can plug in \( p = \frac{n}{\log n} \) to minimize the cost, while retaining the same time complexity:
 \[
 O(\log n + \frac{n}{p}) = O(\log n + \frac{n}{\frac{n}{\log n}}) = O(\log n + \log n) = O(\log n)
 \]</p>
