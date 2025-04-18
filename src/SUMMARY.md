@@ -12,6 +12,8 @@
     - [Doubling (pointer-jumping)](./02-basic-techniques/strategies/doubling.md)
     - [Partitioning](./02-basic-techniques/strategies/partitioning.md)
     - [Pipelining](./02-basic-techniques/strategies/pipelining.md)
+    - [Euler Tour](./02-basic-techniques/strategies/euler-tour.md)
+    - [Tree Contraction](./02-basic-techniques/strategies/tree-contraction.md)
 
 - [Cost Saving Techniques](./02-basic-techniques/cost-saving.md)
     - [Accelerated Cascading](./02-basic-techniques/cost-saving/accelerated-cascading.md)
