@@ -11,7 +11,7 @@
 
 - 平行方法:
   1. 用Euler Tour幫左到右(不含最左最右)的leaf node編號。
-  2. 平行進行rake operation:
+  2. 分四階段平行進行rake operation:
     - a. 每個left child的奇數編號的leaf node進行rake。
     - b. 每個left child的偶數編號的leaf node進行rake。
     - c. 每個right child的奇數編號的leaf node進行rake。
