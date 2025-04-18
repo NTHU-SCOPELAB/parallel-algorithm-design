@@ -15,5 +15,6 @@
     - c. 每個right child的奇數編號的leaf node進行rake。
     - d. 每個right child的偶數編號的leaf node進行rake。
 - 平行不會衡突的原因:
+![image](https://github.com/user-attachments/assets/1a34690e-ca94-4713-9486-20e836a6625b)
 
 
