@@ -623,8 +623,12 @@ O(\log n + \frac{n}{p}) = O(\log n + \frac{n}{\frac{n}{\log n}}) = O(\log n + \l
 </ul>
 <h2 id="1-rake-operation"><a class="header" href="#1-rake-operation">1. Rake Operation</a></h2>
 <ul>
-<li>精神: 自爆之後將父母一波帶走，然後讓兄弟姐妹原地取代父母的位置。</li>
-<li>平行方法:
+<li>
+<p>精神: 自爆之後將父母一波帶走，然後讓兄弟姐妹原地取代父母的位置(橘色的部份在這個過程中必需保持不被改動)。
+<img src="https://github.com/user-attachments/assets/8c5863bd-b19a-4492-be09-b5f5ceea5f3d" alt="image" /></p>
+</li>
+<li>
+<p>平行方法:</p>
 <ol>
 <li>用Euler Tour幫左到右(不含最左最右)的leaf node編號。</li>
 <li>平行進行rake operation:</li>
@@ -636,8 +640,10 @@ O(\log n + \frac{n}{p}) = O(\log n + \frac{n}{\frac{n}{\log n}}) = O(\log n + \l
 <li>d. 每個right child的偶數編號的leaf node進行rake。</li>
 </ul>
 </li>
-<li>平行不會衡突的原因:
-<img src="https://github.com/user-attachments/assets/1a34690e-ca94-4713-9486-20e836a6625b" alt="image" /></li>
+<li>
+<p>平行不會衡突的原因:
+<img src="https://github.com/user-attachments/assets/1a34690e-ca94-4713-9486-20e836a6625b" alt="image" /></p>
+</li>
 </ul>
 
                     </main>
