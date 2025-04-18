@@ -6,7 +6,7 @@
 - Model: ***EREW*** PRAM of n processors.
 
 ## 1. Rake Operation
-- 精神: 自爆之後將父母一波帶走，然後讓兄弟姐妹原地取代父母的位置(橘色的部份在這個過程中必需保持不被改動)。
+- 精神: `u`自爆之後將父母`p(u)`一波帶走，然後讓兄弟姐妹`sib(u)`原地取代父母`p(u)`的位置(橘色的部份在這個過程中必需保持不被改動)。
   ![image](https://github.com/user-attachments/assets/8c5863bd-b19a-4492-be09-b5f5ceea5f3d)
 
 - 平行方法:
