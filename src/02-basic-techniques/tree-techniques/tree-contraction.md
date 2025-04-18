@@ -7,7 +7,7 @@
 
 ## 1. Rake Operation
 - 精神: `u`自爆之後將父母`p(u)`一波帶走，然後讓兄弟姐妹`sib(u)`原地取代父母`p(u)`的位置(橘色的部份在這個過程中必需保持不被改動)。
-  ![image](https://github.com/user-attachments/assets/8c5863bd-b19a-4492-be09-b5f5ceea5f3d)
+  ![image](https://github.com/user-attachments/assets/0978cf7c-9ddd-4ffb-b237-cc9ecae9f2f8)
 
 - 平行方法:
   1. 用Euler Tour幫左到右(不含最左最右)的leaf node編號。
