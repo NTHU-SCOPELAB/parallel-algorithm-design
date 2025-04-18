@@ -494,32 +494,6 @@ n &= 2^k = 3^2 = 9 \\\\
 </ul>
 </li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="euler-tour"><a class="header" href="#euler-tour">Euler Tour</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="tree-contraction"><a class="header" href="#tree-contraction">Tree Contraction</a></h1>
-<h2 id="0-problem-statement-sm-12"><a class="header" href="#0-problem-statement-sm-12">0. Problem Statement (SM-12)</a></h2>
-<ul>
-<li>Input: <code>P[1...n]</code>, <code>SIB[1...n]</code>: an n-node rooted binary tree <code>T</code>.</li>
-<li>Output: <code>T</code> is contracted to a 3-node binary tree, by applying a series of rake operation.</li>
-<li>Model: <em><strong>EREW</strong></em> PRAM of n processors.</li>
-</ul>
-<h2 id="1-rake-operation"><a class="header" href="#1-rake-operation">1. Rake Operation</a></h2>
-<ul>
-<li>精神: 自爆之後將父母一波帶走，然後讓兄弟姐妹原地取代父母的位置。</li>
-<li>平行方法:
-<ol>
-<li>用Euler Tour幫左到右(不含最左最右)的leaf node編號。</li>
-<li>平行進行rake operation:</li>
-</ol>
-<ul>
-<li>a. 每個left child的奇數編號的leaf node進行rake。</li>
-<li>b. 每個left child的偶數編號的leaf node進行rake。</li>
-<li>c. 每個right child的奇數編號的leaf node進行rake。</li>
-<li>d. 每個right child的偶數編號的leaf node進行rake。</li>
-</ul>
-</li>
-<li>平行不會衡突的原因:
-<img src="https://github.com/user-attachments/assets/1a34690e-ca94-4713-9486-20e836a6625b" alt="image" /></li>
-</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cost-saving-techniques"><a class="header" href="#cost-saving-techniques">Cost Saving Techniques</a></h1>
 <ul>
 <li>
@@ -636,6 +610,33 @@ O(\log n + \frac{n}{p})
 O(\log n + \frac{n}{p}) = O(\log n + \frac{n}{\frac{n}{\log n}}) = O(\log n + \log n) = O(\log n)
 \]</p>
 </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tree-related-techniques"><a class="header" href="#tree-related-techniques">Tree-related Techniques</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="euler-tour"><a class="header" href="#euler-tour">Euler Tour</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tree-contraction"><a class="header" href="#tree-contraction">Tree Contraction</a></h1>
+<h2 id="0-problem-statement-sm-12"><a class="header" href="#0-problem-statement-sm-12">0. Problem Statement (SM-12)</a></h2>
+<ul>
+<li>Input: <code>P[1...n]</code>, <code>SIB[1...n]</code>: an n-node rooted binary tree <code>T</code>.</li>
+<li>Output: <code>T</code> is contracted to a 3-node binary tree, by applying a series of rake operation.</li>
+<li>Model: <em><strong>EREW</strong></em> PRAM of n processors.</li>
+</ul>
+<h2 id="1-rake-operation"><a class="header" href="#1-rake-operation">1. Rake Operation</a></h2>
+<ul>
+<li>精神: 自爆之後將父母一波帶走，然後讓兄弟姐妹原地取代父母的位置。</li>
+<li>平行方法:
+<ol>
+<li>用Euler Tour幫左到右(不含最左最右)的leaf node編號。</li>
+<li>平行進行rake operation:</li>
+</ol>
+<ul>
+<li>a. 每個left child的奇數編號的leaf node進行rake。</li>
+<li>b. 每個left child的偶數編號的leaf node進行rake。</li>
+<li>c. 每個right child的奇數編號的leaf node進行rake。</li>
+<li>d. 每個right child的偶數編號的leaf node進行rake。</li>
+</ul>
+</li>
+<li>平行不會衡突的原因:
+<img src="https://github.com/user-attachments/assets/1a34690e-ca94-4713-9486-20e836a6625b" alt="image" /></li>
 </ul>
 
                     </main>
