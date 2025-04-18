@@ -12,9 +12,11 @@
     - [Doubling (pointer-jumping)](./02-basic-techniques/strategies/doubling.md)
     - [Partitioning](./02-basic-techniques/strategies/partitioning.md)
     - [Pipelining](./02-basic-techniques/strategies/pipelining.md)
-    - [Euler Tour](./02-basic-techniques/strategies/euler-tour.md)
-    - [Tree Contraction](./02-basic-techniques/strategies/tree-contraction.md)
 
 - [Cost Saving Techniques](./02-basic-techniques/cost-saving.md)
     - [Accelerated Cascading](./02-basic-techniques/cost-saving/accelerated-cascading.md)
     - [Brent Theorem](./02-basic-techniques/cost-saving/brent-theorem.md)
+
+- [Tree-related Techniques](./02-basic-techniques/tree-techniques.md)
+    - [Euler Tour](./02-basic-techniques/tree-techniques/euler-tour.md)
+    - [Tree Contraction](./02-basic-techniques/tree-techniques/tree-contraction.md)
